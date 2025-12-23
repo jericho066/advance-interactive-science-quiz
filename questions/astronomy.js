@@ -472,7 +472,7 @@ const astronomyQuestions = [
 {
   question: "What does one light-year measure?",
   answers: [
-    { text: "Distance (the distance light travels in one year)", correct: true },
+    { text: "Distance", correct: true },
     { text: "Time", correct: false },
     { text: "Star brightness", correct: false },
     { text: "Mass of a star", correct: false }
