@@ -133,6 +133,13 @@ body {
     font-size: clamp(0.85rem, 2vw, 1rem);
     position: relative;
     overflow: hidden;
+    outline-offset: 2px;
+}
+
+.topic-option:focus-visible {
+    outline: 3px solid #3b82f6;
+    outline-offset: 2px;
+    z-index: 1;
 }
 
 .topic-option::before {
@@ -199,6 +206,13 @@ body {
     width: auto;
     position: relative;
     overflow: hidden;
+    outline-offset: 2px;
+}
+
+.number-option:focus-visible {
+    outline: 3px solid #3b82f6;
+    outline-offset: 2px;
+    z-index: 1;
 }
 
 .number-option::before {
@@ -335,6 +349,13 @@ body {
     text-align: center;
     position: relative;
     overflow: hidden;
+    outline-offset: 2px;
+}
+
+.answer-option:focus-visible {
+    outline: 3px solid #3b82f6;
+    outline-offset: 2px;
+    z-index: 1;
 }
 
 .answer-option::before {
@@ -382,7 +403,7 @@ body {
 }
 
 .answer-option.correct-reveal::after {
-    content: " ✔";
+    content: " ✓";
     position: absolute;
     font-weight: bold;
     color: #065f46;
@@ -391,7 +412,7 @@ body {
 }
 
 .answer-option.correct::after {
-    content: " ✔";
+    content: " ✓";
     position: absolute;
     font-weight: bold;
     color: #065f46;
@@ -400,7 +421,7 @@ body {
 }
 
 .answer-option.incorrect::after {
-    content: " ✖";
+    content: " ✗";
     position: absolute;
     font-weight: bold;
     color: #991b1b;
@@ -469,6 +490,12 @@ body {
     box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
     position: relative;
     overflow: hidden;
+    outline-offset: 2px;
+}
+
+#startBtn:focus-visible, #okayBtn:focus-visible, #restartBtn:focus-visible, #backToResultsBtn:focus-visible {
+    outline: 3px solid #1e40af;
+    outline-offset: 3px;
 }
 
 #startBtn::before, #okayBtn::before, #restartBtn::before, #backToResultsBtn::before {
@@ -511,6 +538,12 @@ body {
     box-shadow: 0 4px 16px rgba(59, 130, 246, 0.15);
     position: relative;
     overflow: hidden;
+    outline-offset: 2px;
+}
+
+#viewAnswersBtn:focus-visible {
+    outline: 3px solid #3b82f6;
+    outline-offset: 3px;
 }
 
 #viewAnswersBtn::before {

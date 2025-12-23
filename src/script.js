@@ -17,7 +17,7 @@ const scoreCircle = document.getElementById("scoreCircle");
 const okayBtn = document.getElementById("okayBtn");
 const startBtn = document.getElementById("startBtn");
 const restartBtn = document.getElementById("restartBtn");
-const viewAswersBtn = document.getElementById("viewAnswersBtn")
+const viewAnswersBtn = document.getElementById("viewAnswersBtn")
 const answerReviewSection = document.getElementById("answerReviewSection");
 const backToResultsBtn = document.getElementById("backToResultsBtn");
 const reviewContainer = document.getElementById("reviewContainer");
@@ -396,6 +396,9 @@ const backToResults = () => {
 document.addEventListener("DOMContentLoaded", () => {
 
     topicOptions.forEach(option => {
+
+        option.setAttribute("tabindex", "0");
+
         option.addEventListener("click", function(){
             topicOptions.forEach(opt => opt.classList.remove("selected"));
 
@@ -406,9 +409,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 radio.checked = true;
             }
         })
+
+        // keyboard support
+        option.addEventListener("keydown", function(e) {
+            if(e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                this.click();
+            }
+        })
     })
 
     numberOptions.forEach(option => {
+
+        option.setAttribute("tabindex", "0");
+
         option.addEventListener("click", function() {
             numberOptions.forEach(opt => opt.classList.remove("selected"));
 
@@ -419,6 +433,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 radio.checked = true;
             }
         })
+
+        option.addEventListener("keydown", function(e) {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                this.click();
+            }
+        })
+        
     })
 })
 
@@ -434,7 +456,7 @@ startBtn.addEventListener("click", startQuiz);
 
 restartBtn.addEventListener("click", restartQuiz)
 
-viewAswersBtn.addEventListener("click", viewAnswers);
+viewAnswersBtn.addEventListener("click", viewAnswers);
 
 backToResultsBtn.addEventListener("click", backToResults);
 

@@ -111,12 +111,12 @@
             <!--* Quiz Section -->
             <div id="quizSection">
                 
-                <div class="progress-bar">
+                <div class="progress-bar" role="progressbar" aria-label="Quiz progress">
                     <div id="progress"></div>
                 </div>
 
                 <div class="question-card">
-                    <div id="questionNumber">Questions 1 of 10</div>
+                    <div id="questionNumber" aria-live="polite">Questions 1 of 10</div>
                     <div id="questionText"></div>
 
                     <div id="answersContainer">
@@ -131,7 +131,7 @@
             <!--* Result Section  -->
             <div id="resultSection">
                 
-                <div id="scoreCircle">0%</div>
+                <div id="scoreCircle" role="status" aria-label="Quiz score">0%</div>
                 <div id="resultMessage"></div>
                 <div id="resultDetails"></div>
 
