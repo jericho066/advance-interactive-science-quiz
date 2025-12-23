@@ -23,6 +23,9 @@ const backToResultsBtn = document.getElementById("backToResultsBtn");
 const reviewContainer = document.getElementById("reviewContainer");
 const reviewSummaryTitle = document.getElementById("reviewSummaryTitle");
 const reviewSummaryStats = document.getElementById("reviewSummaryStats");
+const confirmModal = document.getElementById("confirmModal");
+const confirmRestartBtn = document.getElementById("confirmRestart");
+const cancelRestartBtn = document.getElementById("cancelRestart");
 
 //* quiz state
 let quizQuestions = [];
@@ -228,7 +231,7 @@ const startQuiz = () => {
     const selectedNumberRadio = document.querySelector('input[name="numQuestions"]:checked');
 
     if (!selectedTopicRadio || !selectedNumberRadio) {
-        alert('Please select both a topic and number of questions.');
+        showError('Please select both a topic and number of questions before starting.');
         return;
     }
 
@@ -391,6 +394,32 @@ const backToResults = () => {
 }
 
 
+const showError = (message) => {
+    // Remove any existing error messages
+    const existingError = document.querySelector('.error-message');
+    if (existingError) {
+        existingError.remove();
+    }
+
+    // Create new error message
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.textContent = message;
+    
+    // Insert before the start button
+    const startBtn = document.getElementById('startBtn');
+    startBtn.parentNode.insertBefore(errorDiv, startBtn);
+    
+    // Auto-remove after 4 seconds
+    setTimeout(() => {
+        errorDiv.style.opacity = '0';
+        errorDiv.style.transform = 'translateY(-10px)';
+        setTimeout(() => errorDiv.remove(), 300);
+    }, 4000);
+
+}
+
+
 //! ==== Event Listerners ==== 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -440,7 +469,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 this.click();
             }
         })
-        
+
     })
 })
 
@@ -454,7 +483,38 @@ okayBtn.addEventListener("click", () => {
 
 startBtn.addEventListener("click", startQuiz);
 
-restartBtn.addEventListener("click", restartQuiz)
+restartBtn.addEventListener("click", () => {
+    //* to show confirmation modal
+    confirmModal.classList.add("show");
+    document.body.style.overflow = "hidden"; 
+})
+
+confirmRestartBtn.addEventListener("click", () => {
+    confirmModal.classList.remove("show");
+    document.body.style.overflow = "";
+    restartQuiz();
+})
+
+cancelRestartBtn.addEventListener("click", () => {
+    confirmModal.classList.remove("show");
+    document.body.style.overflow = ""; // Restore scrolling
+});
+
+// Close modal when clicking outside
+confirmModal.addEventListener("click", (e) => {
+    if (e.target === confirmModal) {
+        confirmModal.classList.remove("show");
+        document.body.style.overflow = "";
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && confirmModal.classList.contains("show")) {
+        confirmModal.classList.remove("show");
+        document.body.style.overflow = "";
+    }
+});
 
 viewAnswersBtn.addEventListener("click", viewAnswers);
 
