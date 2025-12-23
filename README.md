@@ -73,7 +73,7 @@ science-quiz/
 
 ##  Installation & Setup
 
-### Option 1: Direct Download
+### 1: Direct Download
 ```bash
 # Clone the repository
 git clone https://github.com/jericho066/advance-interactive-science-quiz.git
