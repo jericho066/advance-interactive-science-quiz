@@ -27,6 +27,11 @@ const confirmModal = document.getElementById("confirmModal");
 const confirmRestartBtn = document.getElementById("confirmRestart");
 const cancelRestartBtn = document.getElementById("cancelRestart");
 const loadingOverlay = document.getElementById("loadingOverlay");
+const timerToggle = document.getElementById("timerToggle");
+const timerContainer = document.getElementById("timerContainer");
+const timerSeconds = document.getElementById("timerSeconds");
+const timerCircle = document.querySelector(".timer-circle");
+const timerText = document.querySelector(".timer-text");
 
 //* quiz state
 let quizQuestions = [];
@@ -37,6 +42,11 @@ let selectedNumQuestions = 10;
 let currentStreak = 0;
 let highestStreak = 0;
 let userAnswers = [];
+
+let timerEnabled = false;
+let timerInterval = null;
+let timeRemaining = 30;
+const TIMER_DURATION = 30;
 
 
 
@@ -118,6 +128,11 @@ const showQuestions = () => {
         feedback.classList.remove("show", "correct", "incorrect");
 
         updateProgress();
+
+        //* to start timer for this question
+        if (timerEnabled) {
+            startTimer();
+        }
     } else {
         showResults();
     }
@@ -147,6 +162,8 @@ const getIncorrectFeedback = () => {
 
 const selectAnswers = (isCorrect, selectedBtn, selectedIndex) => {
     const currentQuestion = quizQuestions[currentQuestionIndex];
+
+    stopTimer();
 
     userAnswers.push({
         questionIndex: currentQuestionIndex,
@@ -264,6 +281,12 @@ const startQuiz = () => {
     }
     headerText.textContent = "Choose the button of the correct answer";
 
+    timerEnabled = timerToggle.checked;
+    
+    if (timerEnabled) {
+        timerContainer.classList.add('show');
+    }
+
     selectTopic(selectedTopic);
 
     quizQuestions = shuffleQuestions(quizQuestions).slice(0, selectedNumQuestions);
@@ -272,7 +295,88 @@ const startQuiz = () => {
 }
 
 
+const startTimer = () => {
+    if (!timerEnabled) return;
+
+    timeRemaining = TIMER_DURATION;
+    updateTimerDisplay();
+
+    clearInterval(timerInterval);
+    timerInterval = setInterval(() => {
+        timeRemaining--;
+        updateTimerDisplay();
+        
+        if (timeRemaining <= 0) {
+            clearInterval(timerInterval);
+            handleTimeout();
+        }
+    }, 1000);
+}
+
+const updateTimerDisplay = () => {
+    timerSeconds.textContent = timeRemaining;
+    
+    const percentage = timeRemaining / TIMER_DURATION;
+    const offset = 283 - (283 * percentage);
+    timerCircle.style.strokeDashoffset = offset;
+    
+    // Color changes
+    timerCircle.classList.remove('warning', 'danger');
+    timerText.classList.remove('warning', 'danger');
+    
+    if (timeRemaining <= 5) {
+        timerCircle.classList.add('danger');
+        timerText.classList.add('danger');
+    } else if (timeRemaining <= 10) {
+        timerCircle.classList.add('warning');
+        timerText.classList.add('warning');
+    }
+};
+
+const stopTimer = () => {
+    clearInterval(timerInterval);
+};
+
+const handleTimeout = () => {
+    // Auto-select wrong answer or skip
+    const allAnswers = document.querySelectorAll(".answer-option");
+    allAnswers.forEach(btn => {
+        btn.style.pointerEvents = "none";
+        const answerText = btn.textContent;
+        const correctAnswer = quizQuestions[currentQuestionIndex].answers.find(a => a.correct);
+        
+        if (btn.textContent === correctAnswer.text) {
+            btn.classList.add("correct-reveal");
+        }
+    });
+    
+    userAnswers.push({
+        questionIndex: currentQuestionIndex,
+        selectedAnswer: -1, // -1 indicates timeout
+        isCorrect: false
+    });
+    
+    currentStreak = 0;
+    showFeedback("Time's up! Moving to next question...", "incorrect");
+    
+    setTimeout(() => {
+        loadingOverlay.classList.add('show');
+    }, 1000);
+    
+    setTimeout(() => {
+        loadingOverlay.classList.remove('show');
+        currentQuestionIndex++;
+        showQuestions();
+    }, 2000);
+};
+
+
+
 const restartQuiz = () => {
+
+    stopTimer();
+    timerContainer.classList.remove("show");
+
     chooseSection.style.display = "block";
     resultSection.classList.remove("show");
     quizSection.classList.remove("active");
