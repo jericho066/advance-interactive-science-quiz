@@ -26,6 +26,7 @@ const reviewSummaryStats = document.getElementById("reviewSummaryStats");
 const confirmModal = document.getElementById("confirmModal");
 const confirmRestartBtn = document.getElementById("confirmRestart");
 const cancelRestartBtn = document.getElementById("cancelRestart");
+const loadingOverlay = document.getElementById("loadingOverlay");
 
 //* quiz state
 let quizQuestions = [];
@@ -193,8 +194,14 @@ const selectAnswers = (isCorrect, selectedBtn, selectedIndex) => {
         showFeedback(feedbackMessage, "incorrect");
     }
 
+    //* to show loading indicator after 1.5 second
+    setTimeout(() => {
+        loadingOverlay.classList.add("show");
+    }, 1500);
+
     //* to delay showing questions for 2 seconds after selecting an answer.
     setTimeout(() => {
+        loadingOverlay.classList.remove("show");
         currentQuestionIndex++;
         showQuestions();
     }, 2000)
