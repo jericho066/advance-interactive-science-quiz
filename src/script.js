@@ -32,6 +32,9 @@ const timerContainer = document.getElementById("timerContainer");
 const timerSeconds = document.getElementById("timerSeconds");
 const timerCircle = document.querySelector(".timer-circle");
 const timerText = document.querySelector(".timer-text");
+const highScoresSection = document.getElementById("highScoresSection");
+const highScoresList = document.getElementById("highScoresList");
+const clearScoresBtn = document.getElementById("clearScoresBtn");
 
 //* quiz state
 let quizQuestions = [];
@@ -65,7 +68,7 @@ const updateProgress = () => {
 }
 
 
-const showResults = () => {
+const showResults = async () => {
     quizSection.classList.remove('active');
 
     //* to capitalize the topic for header text on quiz result.
@@ -103,6 +106,21 @@ const showResults = () => {
         <p>Your final score: <strong>${percentage}%</strong></p>
         ${!passed ? '<p>You need 70% or higher to pass. Try again!</p>' : ''}
     `;
+
+    // Save high score
+    const scoreData = {
+        topic: capitalizeTopic(selectedTopic),
+        percentage: percentage,
+        correct: score,
+        total: quizQuestions.length,
+        date: Date.now(),
+        streak: highestStreak
+    };
+    
+    const newScoreId = await saveHighScore(scoreData);
+    
+    // Display high scores with highlight on new score
+    await displayHighScores(newScoreId);
     
     resultSection.classList.add('show');
 }
@@ -432,7 +450,6 @@ const viewAnswers = () => {
     heading.textContent = "Answer Review";
     headerText.textContent = `Detailed review of your ${capitalizeTopic(selectedTopic)} quiz`;
 
-    // Update summary
     const percentage = Math.round((score / quizQuestions.length) * 100);
     reviewSummaryTitle.textContent = `Quiz Review - ${capitalizeTopic(selectedTopic)}`;
     reviewSummaryStats.innerHTML = `
@@ -442,7 +459,6 @@ const viewAnswers = () => {
         Highest Streak: <strong>${highestStreak}</strong>
     `;
 
-    // Generate review content
     reviewContainer.innerHTML = '';
 
     quizQuestions.forEach((question, index) => {
@@ -451,6 +467,35 @@ const viewAnswers = () => {
         
         const reviewCard = document.createElement('div');
         reviewCard.className = 'review-question-card';
+        
+        // Build the answers HTML
+        const answersHTML = question.answers.map((answer, answerIndex) => {
+            let classes = ['review-answer'];
+            
+            if (answer.correct) {
+                classes.push('correct-answer');
+            }
+            
+            if (userAnswer && userAnswer.selectedAnswer === answerIndex) {
+                classes.push('user-selected');
+                if (!answer.correct) {
+                    classes.push('incorrect');
+                }
+            }
+            
+            return `<div class="${classes.join(' ')}">${answer.text}</div>`;
+        }).join('');
+
+        // ADD EXPLANATION HTML (only if question has explanation)
+        const explanationHTML = question.explanation ? `
+            <div class="review-explanation">
+                <div class="review-explanation-title">
+                    <span class="review-explanation-icon">💡</span>
+                    <span>Explanation</span>
+                </div>
+                <div class="review-explanation-text">${question.explanation}</div>
+            </div>
+        ` : '';
         
         reviewCard.innerHTML = `
             <div class="review-question-header">
@@ -461,30 +506,14 @@ const viewAnswers = () => {
             </div>
             <div class="review-question-text">${question.question}</div>
             <div class="review-answers">
-                ${question.answers.map((answer, answerIndex) => {
-                    let classes = ['review-answer'];
-                    
-                    //* to mark correct answer
-                    if (answer.correct) {
-                        classes.push('correct-answer');
-                    }
-                    
-                    //* to mark user's selection
-                    if (userAnswer && userAnswer.selectedAnswer === answerIndex) {
-                        classes.push('user-selected');
-                        if (!answer.correct) {
-                            classes.push('incorrect');
-                        }
-                    }
-                    
-                    return `<div class="${classes.join(' ')}">${answer.text}</div>`;
-                }).join('')}
+                ${answersHTML}
             </div>
+            ${explanationHTML}
         `;
         
         reviewContainer.appendChild(reviewCard);
     });
-}
+};
 
 
 const backToResults = () => {
@@ -529,6 +558,123 @@ const showError = (message) => {
     }, 4000);
 
 }
+
+
+const saveHighScore = async (scoreData) => {
+    try {
+        // Generate unique ID for this score
+        const scoreId = `score_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+        
+        await window.storage.set(scoreId, JSON.stringify(scoreData));
+        return scoreId;
+    } catch (error) {
+        console.error('Error saving high score:', error);
+        return null;
+    }
+};
+
+const loadHighScores = async () => {
+    try {
+        const result = await window.storage.list('score_');
+        
+        if (!result || !result.keys || result.keys.length === 0) {
+            return [];
+        }
+        
+        // Fetch all scores
+        const scores = [];
+        for (const key of result.keys) {
+            try {
+                const scoreResult = await window.storage.get(key);
+                if (scoreResult && scoreResult.value) {
+                    const scoreData = JSON.parse(scoreResult.value);
+                    scores.push({ id: key, ...scoreData });
+                }
+            } catch (err) {
+                console.error(`Error loading score ${key}:`, err);
+            }
+        }
+        
+        // Sort by percentage (descending), then by date (newest first)
+        scores.sort((a, b) => {
+            if (b.percentage !== a.percentage) {
+                return b.percentage - a.percentage;
+            }
+            return b.date - a.date;
+        });
+        
+        // Keep top 10 scores
+        return scores.slice(0, 10);
+    } catch (error) {
+        console.error('Error loading high scores:', error);
+        return [];
+    }
+};
+
+const displayHighScores = async (newScoreId = null) => {
+    const scores = await loadHighScores();
+    
+    highScoresList.innerHTML = '';
+    
+    if (scores.length === 0) {
+        highScoresList.innerHTML = '<div class="no-scores-message">No high scores yet. Be the first!</div>';
+        clearScoresBtn.style.display = 'none';
+        return;
+    }
+    
+    clearScoresBtn.style.display = 'block';
+    
+    scores.forEach((score, index) => {
+        const scoreItem = document.createElement('div');
+        scoreItem.className = 'high-score-item';
+        
+        if (score.id === newScoreId) {
+            scoreItem.classList.add('new-score');
+        }
+        
+        const rank = index + 1;
+        const rankClass = rank === 1 ? 'rank-1' : rank === 2 ? 'rank-2' : rank === 3 ? 'rank-3' : '';
+        
+        const passed = score.percentage >= 70;
+        const passClass = passed ? 'pass' : 'fail';
+        
+        const date = new Date(score.date);
+        const dateStr = date.toLocaleDateString();
+        
+        scoreItem.innerHTML = `
+            <div class="score-rank ${rankClass}">#${rank}</div>
+            <div class="score-details">
+                <div class="score-topic">${score.topic}</div>
+                <div class="score-info">${score.correct}/${score.total} • ${dateStr}</div>
+            </div>
+            <div class="score-percentage ${passClass}">${score.percentage}%</div>
+        `;
+        
+        highScoresList.appendChild(scoreItem);
+    });
+};
+
+const clearAllScores = async () => {
+    // Show confirmation modal
+    const confirmed = confirm('Are you sure you want to delete all high scores? This cannot be undone.');
+    
+    if (!confirmed) return;
+    
+    try {
+        const result = await window.storage.list('score_');
+        
+        if (result && result.keys) {
+            for (const key of result.keys) {
+                await window.storage.delete(key);
+            }
+        }
+        
+        displayHighScores();
+    } catch (error) {
+        console.error('Error clearing scores:', error);
+    }
+};
+
 
 
 //! ==== Event Listerners ==== 
@@ -626,6 +772,8 @@ document.addEventListener("keydown", (e) => {
         document.body.style.overflow = "";
     }
 });
+
+clearScoresBtn.addEventListener("click", clearAllScores);
 
 viewAnswersBtn.addEventListener("click", viewAnswers);
 

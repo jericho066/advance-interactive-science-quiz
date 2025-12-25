@@ -9,6 +9,7 @@ const astronomyQuestions = [
       { text: "The Sun", correct: true },
       { text: "Proxima Centauri", correct: false },
     ],
+    explanation: "The Sun is Earth's closest star at about 93 million miles (150 million km) away. The next closest star system is Alpha Centauri at 4.37 light-years away, which includes Proxima Centauri, the closest individual star to our solar system after the Sun."
   },
   {
     question: "How many planets are in our solar system?",
@@ -18,6 +19,7 @@ const astronomyQuestions = [
       { text: "Seven", correct: false },
       { text: "Ten", correct: false },
     ],
+    explanation: "There are eight planets in our solar system: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune. Pluto was reclassified as a dwarf planet in 2006 by the International Astronomical Union due to not clearing its orbital neighborhood."
   },
   {
     question: "What is the largest planet in our solar system?",
@@ -27,6 +29,7 @@ const astronomyQuestions = [
       { text: "Neptune", correct: false },
       { text: "Uranus", correct: false },
     ],
+    explanation: "Jupiter is the largest planet in our solar system with a diameter of about 86,881 miles (139,822 km). It's so large that over 1,300 Earths could fit inside it. Jupiter is a gas giant composed mainly of hydrogen and helium."
   },
   {
     question: "What is the name of our galaxy?",
@@ -36,6 +39,7 @@ const astronomyQuestions = [
       { text: "Sombrero", correct: false },
       { text: "Milky Way", correct: true },
     ],
+    explanation: "Our galaxy is called the Milky Way, a barred spiral galaxy containing 100-400 billion stars. It appears as a milky band of light across the night sky, which is how it got its name. Our solar system is located about 26,000 light-years from the galactic center."
   },
   {
     question: "Which planet is known as the Red Planet?",
@@ -45,6 +49,7 @@ const astronomyQuestions = [
       { text: "Jupiter", correct: false },
       { text: "Mercury", correct: false },
     ],
+    explanation: "Mars is called the Red Planet because of its reddish appearance, caused by iron oxide (rust) on its surface. Mars has been a focus of exploration due to evidence of past water and the potential for ancient microbial life."
   },
   {
     question: "What is the hottest planet in our solar system?",
@@ -54,6 +59,7 @@ const astronomyQuestions = [
       { text: "Earth", correct: false },
       { text: "Mars", correct: false },
     ],
+    explanation: "Venus is the hottest planet with surface temperatures around 900°F (475°C), even hotter than Mercury despite being farther from the Sun. This is due to its thick atmosphere of carbon dioxide creating an extreme greenhouse effect."
   },
   {
     question: "What causes tides on Earth?",
@@ -63,6 +69,7 @@ const astronomyQuestions = [
       { text: "Moon's gravity", correct: true },
       { text: "Ocean currents", correct: false },
     ],
+    explanation: "Tides are primarily caused by the Moon's gravitational pull on Earth's oceans. The Moon's gravity creates a bulge of water on the side facing it and on the opposite side, resulting in high tides. The Sun also contributes to tides, creating especially high 'spring tides' when aligned with the Moon."
   },
   {
     question: "What is a light-year?",
@@ -72,6 +79,7 @@ const astronomyQuestions = [
       { text: "A unit of mass", correct: false },
       { text: "A unit of distance", correct: true },
     ],
+    explanation: "A light-year is the distance light travels in one year, approximately 5.88 trillion miles (9.46 trillion km). It's used to measure vast distances in space. For example, the nearest star system (Alpha Centauri) is about 4.37 light-years away."
   },
   {
     question: "Which planet has the most moons?",
@@ -81,6 +89,7 @@ const astronomyQuestions = [
       { text: "Uranus", correct: false },
       { text: "Neptune", correct: false },
     ],
+    explanation: "Saturn has the most known moons with 146 confirmed satellites as of 2024, surpassing Jupiter's 95 moons. Many of Saturn's moons are small and were discovered recently. Titan, Saturn's largest moon, is larger than the planet Mercury."
   },
   {
     question: "What is the smallest planet in our solar system?",
@@ -90,6 +99,7 @@ const astronomyQuestions = [
       { text: "Venus", correct: false },
       { text: "Pluto", correct: false },
     ],
+    explanation: "Mercury is the smallest planet in our solar system with a diameter of about 3,032 miles (4,879 km), only slightly larger than Earth's Moon. Despite being closest to the Sun, it's not the hottest planet due to its lack of atmosphere to trap heat."
   },
   {
     question: "What type of celestial body is the Sun?",
@@ -99,6 +109,7 @@ const astronomyQuestions = [
       { text: "Main sequence star", correct: true },
       { text: "Neutron star", correct: false },
     ],
+    explanation: "The Sun is a main sequence star, meaning it's in the stable phase of its life where it fuses hydrogen into helium in its core. It's classified as a G-type yellow dwarf star and is about 4.6 billion years old, with roughly 5 billion years left before it evolves into a red giant."
   },
   {
     question: "Which space agency successfully landed the first humans on the Moon?",
@@ -108,6 +119,7 @@ const astronomyQuestions = [
       { text: "CNSA", correct: false },
       { text: "NASA", correct: true },
     ],
+    explanation: "NASA (National Aeronautics and Space Administration) successfully landed the first humans on the Moon with the Apollo 11 mission on July 20, 1969. Astronauts Neil Armstrong and Buzz Aldrin became the first humans to walk on the Moon."
   },
   {
     question: "What is the name of Saturn's largest moon?",
@@ -117,6 +129,7 @@ const astronomyQuestions = [
       { text: "Ganymede", correct: false },
       { text: "Callisto", correct: false },
     ],
+    explanation: "Titan is Saturn's largest moon and the second-largest moon in the solar system. It's the only moon with a substantial atmosphere and has liquid methane and ethane lakes on its surface, making it one of the most Earth-like worlds in terms of surface processes."
   },
   {
     question: "What is the study of the universe called?",
@@ -126,6 +139,7 @@ const astronomyQuestions = [
       { text: "Meteorology", correct: false },
       { text: "Astrology", correct: false },
     ],
+    explanation: "Cosmology is the scientific study of the origin, evolution, and eventual fate of the universe. It combines physics, astronomy, and philosophy to understand the universe's large-scale properties, including dark matter, dark energy, and the Big Bang theory."
   },
   {
     question: "Which planet rotates on its side?",
@@ -135,6 +149,7 @@ const astronomyQuestions = [
       { text: "Uranus", correct: true },
       { text: "Neptune", correct: false },
     ],
+    explanation: "Uranus has an extreme axial tilt of about 98 degrees, meaning it essentially rotates on its side. This unique orientation may have been caused by a collision with an Earth-sized object early in the planet's history, resulting in unusual seasonal patterns."
   },
   {
     question: "What is the name of the region beyond Neptune where many comets originate?",
@@ -144,6 +159,7 @@ const astronomyQuestions = [
       { text: "Heliosphere", correct: false },
       { text: "Oort Cloud", correct: true },
     ],
+    explanation: "The Oort Cloud is a theoretical spherical shell of icy objects surrounding our solar system at distances up to 100,000 AU from the Sun. It's believed to be the source of long-period comets. The Kuiper Belt, located beyond Neptune, is the source of short-period comets."
   },
   {
     question: "Which planet has the strongest winds in the solar system?",
@@ -153,6 +169,7 @@ const astronomyQuestions = [
       { text: "Saturn", correct: false },
       { text: "Uranus", correct: false },
     ],
+    explanation: "Neptune has the fastest winds in the solar system, reaching speeds up to 1,200 mph (2,000 km/h). These supersonic winds are driven by Neptune's internal heat source and occur despite the planet receiving very little solar energy due to its distance from the Sun."
   },
   {
     question: "What is the name of the boundary around a black hole beyond which nothing can escape?",
@@ -162,6 +179,7 @@ const astronomyQuestions = [
       { text: "Schwarzschild radius", correct: false },
       { text: "Singularity", correct: false },
     ],
+    explanation: "The event horizon is the boundary around a black hole beyond which the escape velocity exceeds the speed of light, meaning nothing, not even light, can escape. Once matter or radiation crosses the event horizon, it's inevitably pulled toward the singularity at the black hole's center."
   },
   {
     question: "Which constellation contains the North Star?",
@@ -171,6 +189,7 @@ const astronomyQuestions = [
       { text: "Ursa Minor", correct: true },
       { text: "Draco", correct: false },
     ],
+    explanation: "Polaris, the North Star, is located in the constellation Ursa Minor (the Little Bear), also known as the Little Dipper. It's positioned almost directly above Earth's North Pole, making it useful for navigation in the Northern Hemisphere for thousands of years."
   },
   {
     question: "What is the approximate age of the universe?",
@@ -180,6 +199,7 @@ const astronomyQuestions = [
       { text: "15 billion years", correct: false },
       { text: "13.8 billion years", correct: true },
     ],
+    explanation: "The universe is approximately 13.8 billion years old, determined through measurements of the cosmic microwave background radiation and observations of distant galaxies. The solar system, by comparison, is about 4.6 billion years old, forming roughly 9 billion years after the Big Bang."
   },
   {
     question: "Which type of galaxy is the Milky Way?",
@@ -189,6 +209,7 @@ const astronomyQuestions = [
       { text: "Irregular", correct: false },
       { text: "Lenticular", correct: false },
     ],
+    explanation: "The Milky Way is a barred spiral galaxy, featuring spiral arms rotating around a central bar-shaped structure. It's about 100,000 light-years in diameter and contains 100-400 billion stars. Our solar system is located in one of the minor spiral arms called the Orion Arm."
   },
   {
     question: "What is the name of the largest volcano in the solar system?",
@@ -198,6 +219,7 @@ const astronomyQuestions = [
       { text: "Mauna Kea", correct: false },
       { text: "Alba Mons", correct: false },
     ],
+    explanation: "Olympus Mons on Mars is the largest volcano in the solar system, standing about 16 miles (25 km) high—nearly three times the height of Mount Everest. Its base is roughly the size of Arizona. The lower gravity on Mars allowed the volcano to grow to such enormous heights."
   },
   {
     question: "Which planet takes the longest to orbit the Sun?",
@@ -207,6 +229,7 @@ const astronomyQuestions = [
       { text: "Neptune", correct: true },
       { text: "Pluto", correct: false },
     ],
+    explanation: "Neptune takes approximately 165 Earth years to complete one orbit around the Sun. It's the most distant planet from the Sun at an average distance of 2.8 billion miles (4.5 billion km). Neptune completed its first full orbit since its discovery in 1846 only in 2011."
   },
   {
     question: "What is the name of the first artificial satellite launched into space?",
@@ -216,6 +239,7 @@ const astronomyQuestions = [
       { text: "Luna 1", correct: false },
       { text: "Sputnik 1", correct: true },
     ],
+    explanation: "Sputnik 1, launched by the Soviet Union on October 4, 1957, was the first artificial satellite to orbit Earth. This 184-pound sphere with four radio antennas marked the beginning of the Space Age and triggered the Space Race between the Soviet Union and the United States."
   },
   {
     question: "Which planet has a day longer than its year?",
@@ -225,6 +249,7 @@ const astronomyQuestions = [
       { text: "Mars", correct: false },
       { text: "Jupiter", correct: false },
     ],
+    explanation: "Venus takes 243 Earth days to rotate once on its axis (one Venus day), but only 225 Earth days to orbit the Sun (one Venus year). Additionally, Venus rotates backwards (retrograde rotation) compared to most other planets, likely due to a massive collision early in its history."
   },
   {
     question: "What is the name of the telescope that has provided many deep space images?",
@@ -234,6 +259,7 @@ const astronomyQuestions = [
       { text: "Spitzer", correct: false },
       { text: "Chandra", correct: false },
     ],
+    explanation: "The Hubble Space Telescope, launched in 1990, has provided some of the most detailed visible-light images of distant galaxies, nebulae, and other celestial objects. Operating from low Earth orbit, it avoids atmospheric distortion that affects ground-based telescopes, revolutionizing our understanding of the universe."
   },
   {
     question: "Which moon of Jupiter is known for its volcanic activity?",
@@ -243,6 +269,7 @@ const astronomyQuestions = [
       { text: "Io", correct: true },
       { text: "Callisto", correct: false },
     ],
+    explanation: "Io is the most volcanically active body in the solar system, with over 400 active volcanoes. This extreme volcanism is caused by tidal heating from Jupiter's immense gravity and gravitational interactions with other moons, constantly flexing and heating Io's interior."
   },
   {
     question: "What is the name of the point in Earth's orbit when it is farthest from the Sun?",
@@ -252,6 +279,7 @@ const astronomyQuestions = [
       { text: "Solstice", correct: false },
       { text: "Aphelion", correct: true },
     ],
+    explanation: "Aphelion is the point in Earth's elliptical orbit when it's farthest from the Sun, occurring around July 4th at about 94.5 million miles (152 million km). Perihelion is when Earth is closest to the Sun (around January 3rd). Despite being farther during summer (Northern Hemisphere), Earth is warmer due to axial tilt, not distance."
   },
   {
     question: "Which space probe was the first to leave the solar system?",
@@ -261,6 +289,7 @@ const astronomyQuestions = [
       { text: "Voyager 2", correct: false },
       { text: "New Horizons", correct: false },
     ],
+    explanation: "Voyager 1, launched in 1977, became the first human-made object to enter interstellar space in August 2012 when it crossed the heliopause (the boundary where the Sun's solar wind is stopped by interstellar medium). It's now over 15 billion miles from Earth and still transmitting data."
   },
   {
     question: "What is the name of the super-massive black hole at the center of our galaxy?",
@@ -270,6 +299,7 @@ const astronomyQuestions = [
       { text: "M87*", correct: false },
       { text: "TON 618", correct: false },
     ],
+    explanation: "Sagittarius A* (pronounced 'A-star') is the supermassive black hole at the center of the Milky Way, with a mass about 4 million times that of the Sun. Located about 26,000 light-years from Earth, it was directly imaged for the first time in 2022 by the Event Horizon Telescope collaboration."
   },
   {
     question: "What is the name of the nearest galaxy to the Milky Way?",
@@ -279,6 +309,7 @@ const astronomyQuestions = [
       { text: "Whirlpool", correct: false },
       { text: "Centaurus A", correct: false },
     ],
+    explanation: "The Andromeda Galaxy (M31) is the nearest major galaxy to the Milky Way, located about 2.5 million light-years away. It's on a collision course with the Milky Way and will merge with our galaxy in about 4.5 billion years, forming a giant elliptical galaxy nicknamed 'Milkomeda.'"
   },
   {
     question: "Which planet has the Great Red Spot?",
@@ -288,6 +319,7 @@ const astronomyQuestions = [
       { text: "Neptune", correct: false },
       { text: "Uranus", correct: false },
     ],
+    explanation: "Jupiter's Great Red Spot is a massive anticyclonic storm that has been raging for at least 400 years. It's large enough to fit two or three Earths inside. The storm's reddish color is likely caused by complex chemical reactions in Jupiter's atmosphere involving phosphorus and sulfur compounds."
   },
   {
     question: "What is the main sequence phase of a star's life?",
@@ -297,6 +329,7 @@ const astronomyQuestions = [
       { text: "Hydrogen burning stage", correct: true },
       { text: "Red giant stage", correct: false },
     ],
+    explanation: "The main sequence is the longest and most stable phase of a star's life, during which it fuses hydrogen into helium in its core. Stars spend about 90% of their lifetime in this phase. Our Sun is currently a main sequence star and will remain so for another 5 billion years."
   },
   {
     question: "Which space telescope was launched in 1990?",
@@ -306,6 +339,7 @@ const astronomyQuestions = [
       { text: "Chandra", correct: false },
       { text: "Hubble", correct: true },
     ],
+    explanation: "The Hubble Space Telescope was launched on April 24, 1990, aboard the Space Shuttle Discovery. Despite an initial problem with its primary mirror, it was repaired during a servicing mission in 1993 and has since revolutionized astronomy with stunning images and groundbreaking discoveries about the universe."
   },
   {
     question: "What is the term for a moon's elliptical path around a planet?",
@@ -315,6 +349,7 @@ const astronomyQuestions = [
       { text: "Revolution", correct: false },
       { text: "Precession", correct: false },
     ],
+    explanation: "An orbit is the curved path an object takes around another object due to gravity. While often elliptical, orbits can be circular, elliptical, parabolic, or hyperbolic. Rotation refers to spinning on an axis, while revolution is the complete path around another object (one orbit)."
   },
   {
     question: "Which element is most abundant in the Sun?",
@@ -324,6 +359,7 @@ const astronomyQuestions = [
       { text: "Oxygen", correct: false },
       { text: "Carbon", correct: false },
     ],
+    explanation: "Hydrogen makes up about 73% of the Sun's mass, with helium accounting for about 25%. The remaining 2% consists of heavier elements. Through nuclear fusion, the Sun converts about 600 million tons of hydrogen into helium every second, releasing enormous amounts of energy in the process."
   },
   {
     question: "What is the boundary that separates the solar system from interstellar space?",
@@ -333,6 +369,7 @@ const astronomyQuestions = [
       { text: "Heliopause", correct: true },
       { text: "Oort cloud", correct: false },
     ],
+    explanation: "The heliopause is the boundary where the Sun's solar wind is stopped by the interstellar medium. It marks the edge of the heliosphere and the beginning of interstellar space. Voyager 1 crossed the heliopause in 2012, becoming the first human-made object to enter interstellar space."
   },
   {
     question: "Which moon of Saturn has thick atmosphere and lakes of liquid methane?",
@@ -342,6 +379,7 @@ const astronomyQuestions = [
       { text: "Iapetus", correct: false },
       { text: "Titan", correct: true },
     ],
+    explanation: "Titan is the only moon in the solar system with a substantial atmosphere, composed mainly of nitrogen with clouds of methane. It has liquid methane and ethane lakes and seas on its surface, along with a methane cycle similar to Earth's water cycle, making it one of the most intriguing moons for potential life."
   },
   {
     question: "What is the name of the force that keeps planets in orbit?",
@@ -351,6 +389,7 @@ const astronomyQuestions = [
       { text: "Centrifugal force", correct: false },
       { text: "Nuclear force", correct: false },
     ],
+    explanation: "Gravity is the fundamental force that keeps planets in orbit around stars and moons in orbit around planets. According to Newton's law of universal gravitation, every object with mass attracts every other object. The Sun's immense gravity keeps all the planets in their orbits around it."
   },
   {
     question: "Which planet rotates backwards compared to most others?",
@@ -360,6 +399,7 @@ const astronomyQuestions = [
       { text: "Mercury", correct: false },
       { text: "Jupiter", correct: false },
     ],
+    explanation: "Venus has retrograde rotation, meaning it rotates on its axis in the opposite direction to most planets. While most planets rotate counterclockwise when viewed from above the North Pole, Venus rotates clockwise. This unusual rotation may have resulted from a massive collision early in Venus's history."
   },
   {
     question: "What is the process that powers stars?",
@@ -369,6 +409,7 @@ const astronomyQuestions = [
       { text: "Nuclear fusion", correct: true },
       { text: "Gravitational collapse", correct: false },
     ],
+    explanation: "Nuclear fusion powers stars by combining lighter atomic nuclei into heavier ones, releasing enormous amounts of energy. In the Sun and similar stars, hydrogen nuclei fuse to form helium through the proton-proton chain reaction. This process requires extreme temperatures and pressures found in stellar cores."
   },
   {
     question: "Which type of object has an event horizon?",
@@ -378,6 +419,7 @@ const astronomyQuestions = [
       { text: "Pulsar", correct: false },
       { text: "Black hole", correct: true },
     ],
+    explanation: "Black holes have event horizons—the boundary beyond which nothing, not even light, can escape due to the immense gravitational pull. The event horizon's size depends on the black hole's mass. Once anything crosses this point, it's inevitably pulled toward the singularity at the black hole's center."
   },
   {
     question: "What is the name of Mars' larger moon?",
@@ -387,6 +429,7 @@ const astronomyQuestions = [
       { text: "Europa", correct: false },
       { text: "Ganymede", correct: false },
     ],
+    explanation: "Phobos is the larger of Mars's two small moons, with a diameter of about 14 miles (22 km). It orbits very close to Mars—only 3,700 miles (6,000 km) above the surface—and is slowly spiraling inward due to tidal forces. In about 50 million years, Phobos will either crash into Mars or break apart to form a ring."
   },
   {
     question: "Which mission first landed humans on the Moon?",
@@ -396,6 +439,7 @@ const astronomyQuestions = [
       { text: "Apollo 12", correct: false },
       { text: "Gemini 8", correct: false },
     ],
+    explanation: "Apollo 11, launched on July 16, 1969, was the first mission to land humans on the Moon. Commander Neil Armstrong and Lunar Module Pilot Buzz Aldrin landed on the Moon on July 20, 1969, while Michael Collins orbited above in the Command Module. Armstrong's first words upon stepping onto the lunar surface were 'That's one small step for man, one giant leap for mankind.'"
   },
   {
     question: "What is the name of the wide band of stars we see across the night sky?",
@@ -405,6 +449,7 @@ const astronomyQuestions = [
       { text: "Milky Way", correct: true },
       { text: "Solar system", correct: false },
     ],
+    explanation: "The Milky Way appears as a luminous band across the night sky because we're viewing our galaxy from within it. This band consists of billions of stars in the galactic disk. Ancient civilizations saw this glowing band and named it for its milky appearance, inspiring the galaxy's modern name."
   },
   {
     question: "Which planet has the most extreme temperature variations?",
@@ -414,6 +459,7 @@ const astronomyQuestions = [
       { text: "Jupiter", correct: false },
       { text: "Mercury", correct: true },
     ],
+    explanation: "Mercury experiences the most extreme temperature variations in the solar system, ranging from about 800°F (430°C) on the Sun-facing side to -290°F (-180°C) on the dark side. This is because Mercury has virtually no atmosphere to distribute heat, and it rotates very slowly, causing extreme differences between day and night."
   },
   {
     question: "What is the name of the theoretical boundary around a star where liquid water could exist?",
@@ -423,6 +469,7 @@ const astronomyQuestions = [
       { text: "Kuiper belt", correct: false },
       { text: "Heliosphere", correct: false },
     ],
+    explanation: "The habitable zone, also called the 'Goldilocks zone,' is the region around a star where conditions are 'just right' for liquid water to exist on a planet's surface—not too hot, not too cold. Earth lies within the Sun's habitable zone. Finding exoplanets in habitable zones is a key goal in the search for extraterrestrial life."
   },
   {
     question: "Which comet is visible from Earth every 76 years?",
@@ -432,6 +479,7 @@ const astronomyQuestions = [
       { text: "Hyakutake", correct: false },
       { text: "Shoemaker-Levy 9", correct: false },
     ],
+    explanation: "Halley's Comet is a short-period comet visible from Earth approximately every 75-76 years. Named after astronomer Edmond Halley who calculated its orbit in 1705, it last appeared in 1986 and will return in 2061. Historical records of Halley's Comet date back over 2,000 years."
   },
   {
     question: "What is the remnant of a massive star after a supernova explosion?",
@@ -441,6 +489,7 @@ const astronomyQuestions = [
       { text: "Neutron star or black hole", correct: true },
       { text: "Planetary nebula", correct: false },
     ],
+    explanation: "After a massive star explodes in a supernova, its core collapses into either a neutron star (if the core is 1.4-3 solar masses) or a black hole (if the core exceeds 3 solar masses). Neutron stars are incredibly dense—a teaspoon would weigh billions of tons. Less massive stars become white dwarfs surrounded by planetary nebulae."
   },
   {
     question: "Which spacecraft was the first to leave the solar system?",
@@ -450,7 +499,10 @@ const astronomyQuestions = [
       { text: "New Horizons", correct: false },
       { text: "Voyager 1", correct: true },
     ],
+    explanation: "Voyager 1 crossed the heliopause in August 2012, becoming the first human-made object to enter interstellar space. Launched in 1977, it's now over 15 billion miles from Earth, traveling at about 38,000 mph. Despite its distance, Voyager 1 still communicates with Earth, sending back data about interstellar space."
   },
+
+  // Todo: continue adding exaplanations.
   {
   question: "What star is the closest to Earth?",
   answers: [

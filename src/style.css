@@ -792,6 +792,41 @@ body {
     margin-bottom: 5px;
 }
 
+
+/** Explanation in Review Section */
+.review-explanation {
+    margin-top: 12px;
+    padding: 12px 15px;
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    border-left: 3px solid #f59e0b;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.08);
+}
+
+.review-explanation-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #92400e;
+    font-size: clamp(0.8rem, 1.9vw, 0.9rem);
+    font-weight: 600;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.review-explanation-icon {
+    font-size: 1rem;
+}
+
+.review-explanation-text {
+    color: #78350f;
+    font-size: clamp(0.85rem, 2vw, 0.95rem);
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+
 /** Responsiveness  */
 @media (min-width: 1200px) {
     .container {
@@ -1464,4 +1499,169 @@ body {
         font-size: 1.1rem;
     }
 }
+
+
+/** High Scores Section */
+.high-scores-section {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border: 2px solid #bae6fd;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.08);
+}
+
+.high-scores-title {
+    color: #1e293b;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+
+.high-scores-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.high-score-item {
+    background: #ffffff;
+    padding: 12px 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #e0f2fe;
+    transition: all 0.2s ease;
+}
+
+.high-score-item:hover {
+    border-color: #3b82f6;
+    transform: translateX(3px);
+}
+
+.high-score-item.new-score {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    border-color: #3b82f6;
+    animation: highlightScore 0.6s ease;
+}
+
+@keyframes highlightScore {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+.score-rank {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #3b82f6;
+    min-width: 30px;
+}
+
+.score-rank.rank-1 {
+    color: #f59e0b;
+}
+
+.score-rank.rank-2 {
+    color: #94a3b8;
+}
+
+.score-rank.rank-3 {
+    color: #cd7f32;
+}
+
+.score-details {
+    flex: 1;
+    margin: 0 15px;
+}
+
+.score-topic {
+    font-weight: 600;
+    color: #1e293b;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    margin-bottom: 3px;
+}
+
+.score-info {
+    font-size: clamp(0.75rem, 1.8vw, 0.85rem);
+    color: #64748b;
+}
+
+.score-percentage {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #3b82f6;
+    min-width: 50px;
+    text-align: right;
+}
+
+.score-percentage.pass {
+    color: #10b981;
+}
+
+.score-percentage.fail {
+    color: #ef4444;
+}
+
+.clear-scores-btn {
+    width: 100%;
+    padding: 10px;
+    background: #ffffff;
+    color: #ef4444;
+    border: 2px solid #ef4444;
+    border-radius: 8px;
+    font-size: clamp(0.85rem, 2vw, 0.95rem);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.clear-scores-btn:hover {
+    background: #ef4444;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.clear-scores-btn:focus-visible {
+    outline: 3px solid #ef4444;
+    outline-offset: 2px;
+}
+
+.no-scores-message {
+    text-align: center;
+    color: #64748b;
+    font-style: italic;
+    padding: 20px;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+/* Custom scrollbar for high scores list */
+.high-scores-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.high-scores-list::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 3px;
+}
+
+.high-scores-list::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}
+
+.high-scores-list::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
 
