@@ -501,96 +501,105 @@ const astronomyQuestions = [
     ],
     explanation: "Voyager 1 crossed the heliopause in August 2012, becoming the first human-made object to enter interstellar space. Launched in 1977, it's now over 15 billion miles from Earth, traveling at about 38,000 mph. Despite its distance, Voyager 1 still communicates with Earth, sending back data about interstellar space."
   },
-
-  // Todo: continue adding exaplanations.
   {
-  question: "What star is the closest to Earth?",
-  answers: [
-    { text: "The Sun", correct: true },
-    { text: "Proxima Centauri", correct: false },
-    { text: "Sirius", correct: false },
-    { text: "Alpha Centauri A", correct: false }
-  ]
-},
-{
-  question: "Which galaxy contains our Solar System?",
-  answers: [
-    { text: "The Milky Way", correct: true },
-    { text: "Andromeda", correct: false },
-    { text: "Triangulum", correct: false },
-    { text: "Whirlpool", correct: false }
-  ]
-},
-{
-  question: "What does one light-year measure?",
-  answers: [
-    { text: "Distance", correct: true },
-    { text: "Time", correct: false },
-    { text: "Star brightness", correct: false },
-    { text: "Mass of a star", correct: false }
-  ]
-},
-{
-  question: "Which planet in our Solar System is most famous for having a prominent ring system?",
-  answers: [
-    { text: "Saturn", correct: true },
-    { text: "Mars", correct: false },
-    { text: "Venus", correct: false },
-    { text: "Mercury", correct: false }
-  ]
-},
-{
-  question: "Small rocky bodies that orbit the Sun mainly between Mars and Jupiter are called what?",
-  answers: [
-    { text: "Asteroids", correct: true },
-    { text: "Comets", correct: false },
-    { text: "Meteoroids", correct: false },
-    { text: "Planetesimals", correct: false }
-  ]
-},
-{
-  question: "What name is given to the explosive death of a massive star?",
-  answers: [
-    { text: "Supernova", correct: true },
-    { text: "Nova", correct: false },
-    { text: "Pulsar", correct: false },
-    { text: "Red giant", correct: false }
-  ]
-},
-{
-  question: "What term describes a natural object that orbits a planet (like our Moon)?",
-  answers: [
-    { text: "Natural satellite", correct: true },
-    { text: "Artificial satellite", correct: false },
-    { text: "Comet", correct: false },
-    { text: "Asteroid", correct: false }
-  ]
-},
-{
-  question: "Which force keeps planets moving in orbit around stars?",
-  answers: [
-    { text: "Gravity", correct: true },
-    { text: "Electromagnetism", correct: false },
-    { text: "Strong nuclear force", correct: false },
-    { text: "Friction", correct: false }
-  ]
-},
-{
-  question: "What term describes the diffuse mixture of gas and dust filling much of interstellar space?",
-  answers: [
-    { text: "Interstellar medium", correct: true },
-    { text: "Quasar field", correct: false },
-    { text: "Oort cloud", correct: false },
-    { text: "Solar wind", correct: false }
-  ]
-},
-{
-  question: "What defines a black hole's point of no return where not even light can escape?",
-  answers: [
-    { text: "Event horizon", correct: true },
-    { text: "Singularity", correct: false },
-    { text: "Photon sphere", correct: false },
-    { text: "Accretion disk", correct: false }
-  ]
-}
+    question: "What star is the closest to Earth?",
+    answers: [
+      { text: "The Sun", correct: true },
+      { text: "Proxima Centauri", correct: false },
+      { text: "Sirius", correct: false },
+      { text: "Alpha Centauri A", correct: false }
+    ],
+    explanation: "The Sun is Earth's closest star at about 93 million miles away. While Proxima Centauri is the closest star to our solar system after the Sun, it's still 4.24 light-years away—about 25 trillion miles!"
+  },
+  {
+    question: "Which galaxy contains our Solar System?",
+    answers: [
+      { text: "The Milky Way", correct: true },
+      { text: "Andromeda", correct: false },
+      { text: "Triangulum", correct: false },
+      { text: "Whirlpool", correct: false }
+    ],
+    explanation: "The Milky Way is our home galaxy, a barred spiral galaxy containing 100-400 billion stars. Our solar system is located in one of its spiral arms, about 26,000 light-years from the galactic center."
+  },
+  {
+    question: "What does one light-year measure?",
+    answers: [
+      { text: "Distance", correct: true },
+      { text: "Time", correct: false },
+      { text: "Star brightness", correct: false },
+      { text: "Mass of a star", correct: false }
+    ],
+    explanation: "A light-year is the distance light travels in one year, approximately 5.88 trillion miles (9.46 trillion km). Despite the word 'year' in its name, it's a unit of distance, not time, used to measure the vast distances between stars and galaxies."
+  },
+  {
+    question: "Which planet in our Solar System is most famous for having a prominent ring system?",
+    answers: [
+      { text: "Saturn", correct: true },
+      { text: "Mars", correct: false },
+      { text: "Venus", correct: false },
+      { text: "Mercury", correct: false }
+    ],
+    explanation: "Saturn is famous for its spectacular ring system, composed of billions of particles of ice and rock ranging from tiny grains to house-sized chunks. While Jupiter, Uranus, and Neptune also have rings, Saturn's are by far the largest and most visible."
+  },
+  {
+    question: "Small rocky bodies that orbit the Sun mainly between Mars and Jupiter are called what?",
+    answers: [
+      { text: "Asteroids", correct: true },
+      { text: "Comets", correct: false },
+      { text: "Meteoroids", correct: false },
+      { text: "Planetesimals", correct: false }
+    ],
+    explanation: "Asteroids are rocky remnants from the early solar system that never coalesced into a planet. The main asteroid belt between Mars and Jupiter contains millions of asteroids, ranging from small rocks to Ceres, which is large enough to be classified as a dwarf planet."
+  },
+  {
+    question: "What name is given to the explosive death of a massive star?",
+    answers: [
+      { text: "Supernova", correct: true },
+      { text: "Nova", correct: false },
+      { text: "Pulsar", correct: false },
+      { text: "Red giant", correct: false }
+    ],
+    explanation: "A supernova is the catastrophic explosion of a massive star at the end of its life. In a few seconds, a supernova can release as much energy as the Sun will emit over its entire 10-billion-year lifetime, briefly outshining entire galaxies."
+  },
+  {
+    question: "What term describes a natural object that orbits a planet (like our Moon)?",
+    answers: [
+      { text: "Natural satellite", correct: true },
+      { text: "Artificial satellite", correct: false },
+      { text: "Comet", correct: false },
+      { text: "Asteroid", correct: false }
+    ],
+    explanation: "A natural satellite, or moon, is any celestial body that orbits a planet or minor planet. Our Moon is Earth's only natural satellite, but the solar system has over 200 known natural satellites orbiting various planets."
+  },
+  {
+    question: "Which force keeps planets moving in orbit around stars?",
+    answers: [
+      { text: "Gravity", correct: true },
+      { text: "Electromagnetism", correct: false },
+      { text: "Strong nuclear force", correct: false },
+      { text: "Friction", correct: false }
+    ],
+    explanation: "Gravity is the fundamental force that keeps planets in orbit around stars. The Sun's immense gravitational pull keeps all the planets in their elliptical orbits, balancing with their orbital velocity to prevent them from either flying off into space or falling into the Sun."
+  },
+  {
+    question: "What term describes the diffuse mixture of gas and dust filling much of interstellar space?",
+    answers: [
+      { text: "Interstellar medium", correct: true },
+      { text: "Quasar field", correct: false },
+      { text: "Oort cloud", correct: false },
+      { text: "Solar wind", correct: false }
+    ],
+    explanation: "The interstellar medium (ISM) is the matter and radiation that exists in the space between star systems in a galaxy. Composed primarily of hydrogen gas with traces of heavier elements and dust particles, the ISM is the material from which new stars form."
+  },
+  {
+    question: "What defines a black hole's point of no return where not even light can escape?",
+    answers: [
+      { text: "Event horizon", correct: true },
+      { text: "Singularity", correct: false },
+      { text: "Photon sphere", correct: false },
+      { text: "Accretion disk", correct: false }
+    ],
+    explanation: "The event horizon is the boundary around a black hole beyond which the escape velocity exceeds the speed of light. Once anything crosses this threshold, it cannot escape, as nothing can travel faster than light. The singularity is the infinitely dense point at the center, while the event horizon is the visible boundary."
+  }
 ];
+
