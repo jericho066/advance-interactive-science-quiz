@@ -589,7 +589,7 @@ const physicsQuestions = [
       { text: "Henry", correct: false },
       { text: "Gauss", correct: false },
     ],
-  explanation: "The tesla (T) is the SI unit of magnetic field strength (magnetic flux density). It's named after Nikola Tesla. One tesla is quite strong - Earth's magnetic field is about 50 microtesla, while an MRI machine uses 1.5-3 tesla."
+    explanation: "The tesla (T) is the SI unit of magnetic field strength (magnetic flux density). It's named after Nikola Tesla. One tesla is quite strong - Earth's magnetic field is about 50 microtesla, while an MRI machine uses 1.5-3 tesla."
   },
   {
     question: "Which phenomenon occurs when two waves meet?",
