@@ -531,70 +531,74 @@ const biologyQuestions = [
     ],
     explanation: "The cell is the basic unit of life - the smallest structure capable of performing all life functions. All organisms are made of one or more cells. Cells contain genetic material, can reproduce, obtain and use energy, respond to their environment, and maintain homeostasis."
   },
-  
-
-// Todo: continue adding explanation.
-{
-  question: "Which blood cells are primarily responsible for transporting oxygen throughout the body?",
-  answers: [
-    { text: "Red blood cells", correct: true },
-    { text: "White blood cells", correct: false },
-    { text: "Platelets", correct: false },
-    { text: "Plasma cells", correct: false }
-  ]
-},
-{
-  question: "What is the name of the process that breaks glucose into pyruvate and yields ATP without requiring oxygen?",
-  answers: [
-    { text: "Glycolysis", correct: true },
-    { text: "Krebs cycle", correct: false },
-    { text: "Electron transport chain", correct: false },
-    { text: "Photosynthesis", correct: false }
-  ]
-},
-{
-  question: "In eukaryotic cells, where does transcription (DNA → RNA) primarily take place?",
-  answers: [
-    { text: "Nucleus", correct: true },
-    { text: "Cytoplasm", correct: false },
-    { text: "Mitochondrion", correct: false },
-    { text: "Ribosome", correct: false }
-  ]
-},
-{
-  question: "What process during meiosis increases genetic variation by exchanging segments between homologous chromosomes?",
-  answers: [
-    { text: "Crossing over", correct: true },
-    { text: "Binary fission", correct: false },
-    { text: "Independent assortment", correct: false },
-    { text: "Cytokinesis", correct: false }
-  ]
-},
-{
-  question: "Which molecule carries genetic information in most organisms?",
-  answers: [
-    { text: "DNA", correct: true },
-    { text: "RNA", correct: false },
-    { text: "Protein", correct: false },
-    { text: "Lipid", correct: false }
-  ]
-},
-{
-  question: "Organisms that lack a nucleus and membrane-bound organelles belong to which group?",
-  answers: [
-    { text: "Prokaryotes", correct: true },
-    { text: "Eukaryotes", correct: false },
-    { text: "Archaea only", correct: false },
-    { text: "Protists", correct: false }
-  ]
-},
-{
-  question: "Which kingdom contains multicellular, photosynthetic organisms that have cell walls made of cellulose?",
-  answers: [
-    { text: "Plantae", correct: true },
-    { text: "Animalia", correct: false },
-    { text: "Fungi", correct: false },
-    { text: "Protista", correct: false }
-  ]
-}
+  {
+    question: "Which blood cells are primarily responsible for transporting oxygen throughout the body?",
+    answers: [
+      { text: "Red blood cells", correct: true },
+      { text: "White blood cells", correct: false },
+      { text: "Platelets", correct: false },
+      { text: "Plasma cells", correct: false }
+    ],
+    explanation: "Red blood cells (erythrocytes) contain hemoglobin, an iron-containing protein that binds oxygen in the lungs and releases it to tissues. They have a biconcave disc shape that maximizes surface area for gas exchange. Red blood cells live about 120 days before being recycled by the spleen and liver."
+  },
+  {
+    question: "What is the name of the process that breaks glucose into pyruvate and yields ATP without requiring oxygen?",
+    answers: [
+      { text: "Glycolysis", correct: true },
+      { text: "Krebs cycle", correct: false },
+      { text: "Electron transport chain", correct: false },
+      { text: "Photosynthesis", correct: false },
+    ],
+    explanation: "Glycolysis is the first stage of cellular respiration, occurring in the cytoplasm. It breaks one glucose molecule (6 carbons) into two pyruvate molecules (3 carbons each), producing 2 ATP and 2 NADH. It doesn't require oxygen, so it occurs in both aerobic and anaerobic respiration."
+  },
+  {
+    question: "In eukaryotic cells, where does transcription (DNA → RNA) primarily take place?",
+    answers: [
+      { text: "Nucleus", correct: true },
+      { text: "Cytoplasm", correct: false },
+      { text: "Mitochondrion", correct: false },
+      { text: "Ribosome", correct: false },
+    ],
+    explanation: "Transcription occurs in the nucleus of eukaryotic cells, where DNA is located. The enzyme RNA polymerase reads DNA and synthesizes a complementary mRNA strand. The mRNA then exits the nucleus through nuclear pores to reach ribosomes in the cytoplasm for translation into proteins."
+  },
+  {
+    question: "What process during meiosis increases genetic variation by exchanging segments between homologous chromosomes?",
+    answers: [
+      { text: "Crossing over", correct: true },
+      { text: "Binary fission", correct: false },
+      { text: "Independent assortment", correct: false },
+      { text: "Cytokinesis", correct: false },
+    ],
+    explanation: "Crossing over (recombination) occurs during prophase I of meiosis when homologous chromosomes pair up and exchange DNA segments. This creates new combinations of genes on each chromosome, increasing genetic diversity in offspring. Combined with independent assortment, it ensures each gamete is genetically unique."
+  },
+  {
+    question: "Which molecule carries genetic information in most organisms?",
+    answers: [
+      { text: "DNA", correct: true },
+      { text: "RNA", correct: false },
+      { text: "Protein", correct: false },
+      { text: "Lipid", correct: false },
+    ],
+    explanation: "DNA (deoxyribonucleic acid) stores genetic information in nearly all organisms (some viruses use RNA). It's a double helix composed of two strands of nucleotides connected by hydrogen bonds between complementary bases (A-T and G-C). DNA can replicate itself and encode instructions for building proteins."
+  },
+  {
+    question: "Organisms that lack a nucleus and membrane-bound organelles belong to which group?",
+    answers: [
+      { text: "Prokaryotes", correct: true },
+      { text: "Eukaryotes", correct: false },
+      { text: "Archaea only", correct: false },
+      { text: "Protists", correct: false },
+    ],
+    explanation: "Prokaryotes include bacteria and archaea - organisms with cells that lack a nucleus and membrane-bound organelles. Their DNA floats freely in the nucleoid region. Prokaryotes are generally smaller and simpler than eukaryotes, and they were the first life forms on Earth, appearing about 3.5 billion years ago."
+  },
+  {
+    question: "Which kingdom contains multicellular, photosynthetic organisms that have cell walls made of cellulose?",
+    answers: [
+      { text: "Plantae", correct: true },
+      { text: "Animalia", correct: false },
+      { text: "Fungi", correct: false },
+      { text: "Protista", correct: false },
+    ],
+    explanation: "Kingdom Plantae includes all plants - multicellular organisms that perform photosynthesis using chloroplasts. Plant cells have cell walls made of cellulose (unlike fungi which use chitin). Plants are autotrophs, producing their own food from sunlight, and they're essential for oxygen production and the food chain."
+  },
 ];
