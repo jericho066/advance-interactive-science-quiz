@@ -565,7 +565,7 @@ const saveHighScore = async (scoreData) => {
         // Generate unique ID for this score
         const scoreId = `score_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
         
-        await window.storage.set(scoreId, JSON.stringify(scoreData));
+        localStorage.setItem(scoreId, JSON.stringify(scoreData));
         return scoreId;
     } catch (error) {
         console.error('Error saving high score:', error);
@@ -575,21 +575,18 @@ const saveHighScore = async (scoreData) => {
 
 const loadHighScores = async () => {
     try {
-        const result = await window.storage.list('score_');
+        const keys = Object.keys(localStorage).filter(key => key.startsWith('score_'));
         
-        if (!result || !result.keys || result.keys.length === 0) {
+        if (keys.length === 0) {
             return [];
         }
         
         // Fetch all scores
         const scores = [];
-        for (const key of result.keys) {
+        for (const key of keys) {
             try {
-                const scoreResult = await window.storage.get(key);
-                if (scoreResult && scoreResult.value) {
-                    const scoreData = JSON.parse(scoreResult.value);
-                    scores.push({ id: key, ...scoreData });
-                }
+                const scoreData = JSON.parse(localStorage.getItem(key));
+                scores.push({ id: key, ...scoreData });
             } catch (err) {
                 console.error(`Error loading score ${key}:`, err);
             }
@@ -661,12 +658,10 @@ const clearAllScores = async () => {
     if (!confirmed) return;
     
     try {
-        const result = await window.storage.list('score_');
+        const keys = Object.keys(localStorage).filter(key => key.startsWith('score_'));
         
-        if (result && result.keys) {
-            for (const key of result.keys) {
-                await window.storage.delete(key);
-            }
+        for (const key of keys) {
+            localStorage.removeItem(key);
         }
         
         displayHighScores();
